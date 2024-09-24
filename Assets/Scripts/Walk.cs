@@ -4,28 +4,46 @@ using UnityEngine;
 
 public class Walk : MonoBehaviour
 {
-    public float Speed;
+    public float speed;
     float Xvector;
     float Yvector;
-    
+    float Coin;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Speed = 4;
+        speed = 4;
+       // gm = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Xvector = Input.GetAxis("Horizontal");
-        Xvector = Xvector * Speed * Time.deltaTime;
-        transform.Translate(new Vector3(Xvector, Yvector, 0));
-        /*Yvector = Input.GetAxis("Vertical");
-        Yvector = Yvector * Speed * Time.deltaTime;*/
+            Xvector = Xvector * speed * Time.deltaTime;
+                transform.Translate(new Vector3(Xvector, Yvector, 0));
+                    Yvector = Input.GetAxis("Vertical");
+                        Yvector = Yvector * speed * Time.deltaTime;
 
-        
+
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            //gm.coin += 1;
+            Coin += 1;
+            //rint("I Have",Coin + "Coin");
+            //Destroy();
+            
+
+        }
+
+    }
+
 }
+
+
+   
