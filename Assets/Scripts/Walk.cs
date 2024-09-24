@@ -31,7 +31,7 @@ public class Walk : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Coin"))
+        if (other.gameObject.tag ==("Coin"))
         {
             //gm.coin += 1;
             Coin += 1;
